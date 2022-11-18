@@ -1,21 +1,27 @@
-//
-//  ContentView.swift
-//  kai1110-kadai4
-//
-//  Created by 渡邊魁優 on 2022/11/15.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var countNumber = 0
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(spacing: 30) {
+            Text("\(countNumber)")
+                .font(.title)
+            
+            Button(action: {
+                countNumber += 1
+            }) {
+                Text("+1")
+                    .font(.title)
+            }
+            Button(action: {
+                countNumber = 0
+            }) {
+                Text("Clear")
+                    .font(.title)
+            }
         }
-        .padding()
     }
 }
 
