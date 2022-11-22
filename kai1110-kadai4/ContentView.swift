@@ -7,30 +7,16 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 30) {
             Text("\(countNumber)")
-                .font(.title)
-            ButtonView(countNumber: $countNumber, text: "+1", checkAction: true)
-            ButtonView(countNumber: $countNumber, text: "clear", checkAction: false)
-        }
-    }
-}
 
-struct ButtonView: View {
-    @Binding var countNumber: Int
-    let text: String
-    let checkAction: Bool
-    
-    var body: some View {
-        Button(action: {
-            if checkAction {
+            Button("+1") {
                 countNumber += 1
             }
-            else {
+
+            Button("clear") {
                 countNumber = 0
             }
-        }) {
-            Text(text)
-                .font(.title)
         }
+        .font(.title)
     }
 }
 
